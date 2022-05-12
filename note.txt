@@ -1,0 +1,10 @@
+git init 
+mkdir ten_server
+npm init --->space, yes
+npm i express jsonwebtoken mongoose dotenv argon2 cors
+npm i --save-dev nodemon 
+package.json --> script--> "ten_app" : "nodemon index"
+
+tạo index.js để setup expressJS 
+ khởi chạy: npm run "ten_app"
+ 

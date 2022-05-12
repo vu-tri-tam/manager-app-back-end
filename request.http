@@ -1,0 +1,170 @@
+
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+
+{
+    "userName": "ly thanh quyen",
+    "password": "12345678",
+    "email":"vutritamiuem@gmail.com"
+}
+
+
+
+
+
+
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+
+{
+    "userName": "vutritam",
+    "password": "12345678"
+}
+
+
+###
+GET http://localhost:5000/api/auth
+# Authorization: :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NDk0NzMwNzl9.MaFbQnCgm3GyXvHV1wgfxzonf0Lc8wFiKp-hiR-dLyo
+
+
+
+###
+GET http://localhost:5000/api/post-work/624118d57d9aabfa6c8338fc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NTAzNTg5ODJ9.AHmRNgtATHFwZ1Uh7mK8_ezOImVgVv7nYtJSW5b9mEg
+
+
+
+
+###
+GET http://localhost:5000/api/post-work
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NDk0NzMwNzl9.MaFbQnCgm3GyXvHV1wgfxzonf0Lc8wFiKp-hiR-dLyo
+
+
+
+
+###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+
+{
+    "userName": "vutritam",
+    "password": "12345678"
+}
+
+
+
+###
+POST http://localhost:5000/api/post-work
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NDk0NzMwNzl9.MaFbQnCgm3GyXvHV1wgfxzonf0Lc8wFiKp-hiR-dLyo
+
+
+{
+    "name_work": "ok con dê nha",
+    "date_work": [
+        {
+            "hours":1,
+            "minutes":55
+        }
+
+    ],
+    "startAt": "ádasdasd",
+    "timeRemain":null,
+    "statusFinised":false,
+    "status":false,
+    "scores":5,
+    "dateWorkToday":"2022-4-26",
+    "notification": "false",
+    "type_work": "medium"
+
+}
+
+
+
+
+###
+PATCH  http://localhost:5000/api/post-work/625d348354207bb97764237f 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NTAyNjAwNTF9.s1_0bgDj71rwapNYvFESagBPhfR7l1yEdVQIdXavrb4
+
+{
+    
+    "status":false
+}
+
+
+
+###
+PATCH  http://localhost:5000/api/post-work/statusFinised/625d348354207bb97764237f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NTAyNjAwNTF9.s1_0bgDj71rwapNYvFESagBPhfR7l1yEdVQIdXavrb4
+
+
+{
+    "statusFinised":false
+}
+
+
+
+
+###
+POST http://localhost:5000/api/send-email
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NDk0NzMwNzl9.MaFbQnCgm3GyXvHV1wgfxzonf0Lc8wFiKp-hiR-dLyo
+
+{
+    "content":13435,
+    "email":"ngoncoiuem123@gmail.com"
+}
+
+
+
+###
+PATCH  http://localhost:5000/api/post-work/625d348354207bb97764237f 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NTAyNjAwNTF9.s1_0bgDj71rwapNYvFESagBPhfR7l1yEdVQIdXavrb4
+
+{
+    
+    "status":false
+}
+
+
+
+
+###
+PATCH  http://localhost:5000/api/post-work/endWork/626604bfa4f53bececaca49c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NTAyNjAwNTF9.s1_0bgDj71rwapNYvFESagBPhfR7l1yEdVQIdXavrb4
+
+
+{
+    "endWork":true
+}
+
+
+
+###
+PATCH  http://localhost:5000/api/post-work/point/62661a1febb5dd33b3790466
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NTAyNjAwNTF9.s1_0bgDj71rwapNYvFESagBPhfR7l1yEdVQIdXavrb4
+
+
+{
+    "scores":9
+}
+
+
+###
+PATCH  http://localhost:5000/api/post-work/countime/6271e3728662efaf2247fc5d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NDk0NzMwNzl9.MaFbQnCgm3GyXvHV1wgfxzonf0Lc8wFiKp-hiR-dLyo
+
+
+{
+    "countTime":12313123
+}
