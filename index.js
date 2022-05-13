@@ -32,5 +32,5 @@ app.use('/api/send-email', mailRoute)
 
 
 app.use(express.static('public'));//sử dụng folder public để render img
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Connected server on port ${PORT} || 5000`))
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Connected server on port ${PORT} || 3000`))
