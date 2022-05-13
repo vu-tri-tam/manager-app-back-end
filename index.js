@@ -23,6 +23,9 @@ app.use(cors())
 app.get('/', (req, res) => {
     res.send('Đã khởi chạy được sever thành công')
 })
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Server is listening on port 5000');
+});
 app.use('/api/auth', userRoute)
 app.use('/api/post-work', workRoute)
 app.use('/api/send-email', mailRoute)
@@ -33,6 +36,3 @@ app.use('/api/send-email', mailRoute)
 
 app.use(express.static('public'));//sử dụng folder public để render img
 // app.get('/', (req, res) => res.send('hello world'))
-app.listen(process.env.PORT || 3000, () => {
-    console.log('Server is listening on port 5000');
-});
