@@ -15,31 +15,31 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:5000/api/auth/login
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 
 {
-    "userName": "vutritam",
+    "userName": "vu tri tam",
     "password": "12345678"
 }
 
 
 ###
-GET http://localhost:5000/api/auth
+GET http://localhost:3000/api/auth
 # Authorization: :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NDk0NzMwNzl9.MaFbQnCgm3GyXvHV1wgfxzonf0Lc8wFiKp-hiR-dLyo
 
 
 
 ###
-GET http://localhost:5000/api/post-work/624118d57d9aabfa6c8338fc
+GET http://localhost:3000/api/post-work/624118d57d9aabfa6c8338fc
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NTAzNTg5ODJ9.AHmRNgtATHFwZ1Uh7mK8_ezOImVgVv7nYtJSW5b9mEg
 
 
 
 
 ###
-GET http://localhost:5000/api/post-work
+GET http://localhost:3000/api/post-work
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NDk0NzMwNzl9.MaFbQnCgm3GyXvHV1wgfxzonf0Lc8wFiKp-hiR-dLyo
 
 
@@ -111,15 +111,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxM
 
 
 
+
+
 ###
-POST http://localhost:5000/api/send-email
+POST http://localhost:3000/api/send-email
 Content-Type: application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxMThkNTdkOWFhYmZhNmM4MzM4ZmMiLCJpYXQiOjE2NDk0NzMwNzl9.MaFbQnCgm3GyXvHV1wgfxzonf0Lc8wFiKp-hiR-dLyo
 
+
 {
-    "content":13435,
-    "email":"ngoncoiuem123@gmail.com"
+    "subject":"xác nhận đăng ký",
+    "content":87778,
+    "email":"vutritamiuem@gmail.com"
 }
+
+
 
 
 
@@ -157,6 +163,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQxM
 {
     "scores":9
 }
+
+
+
+###
+DELETE  http://localhost:3000/api/post-work/628679511094e01458b41c11
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjdmOWJiYjA5Mzc5NDExZTRkMmJkM2YiLCJpYXQiOjE2NTI5NTMxODZ9.Rii3ok5bEDtIXgi4wXWtO5b4jfSs17AUrpXUXtjyzaw
+
 
 
 ###

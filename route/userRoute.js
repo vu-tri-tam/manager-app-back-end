@@ -87,5 +87,36 @@ router.post('/register', async (req, res) => {
         console.log(error.message);
     }
 })
+//UPDATE CountTime my work
+router.patch('/update-user/:id', async (req, res) => {
+    const { userName, email } = req.body
+    // console.log(req.userId, 555)
+    // console.log(req.params.id, 777);
+    // if (!statusFinised) {
+    //     return res.status(400).json({ success: false, message: "Missing statusFinised ! please check status and try again" })
+    // }
+    try {
+        const newUser = {
+            userName,
+            email,
+
+        }
+
+        const updateUserID = {
+            _id: req.params.id
+
+        }
+        updateUser = await users.findOneAndUpdate(updateUserID, newUser, { new: true })
+        // console.log(updatePostID, 777);
+        if (!updateUser) {
+            return res.status(401).json({ success: false, message: 'Không tìm thấy người dùng nào như vậy!' })
+        }
+        return res.json({ success: true, message: 'Cập nhật thành công!', updateUser })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, message: "internal server errors" })
+    }
+})
+
 
 module.exports = router

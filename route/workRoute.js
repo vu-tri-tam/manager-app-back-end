@@ -50,7 +50,7 @@ router.get('/:id', verifyToken, async (req, res) => {
 //POST my work
 router.post('/', verifyToken, async (req, res) => {
     const { name_work, date_work, notification, status, endWork, dateWorkToday, scores, type_work, startAt, timeRemain } = req.body
-    console.log(req.body);
+
     if (!name_work || !date_work || !notification || !type_work) {
         return res.status(400).json({ success: false, message: "Missing post work ! please check and try again" })
 
@@ -95,6 +95,42 @@ router.post('/', verifyToken, async (req, res) => {
 })
 
 
+//UPDATE my work
+router.patch('/post/:id', verifyToken, async (req, res) => {
+    const { name_work, date_work, notification, status, endWork, dateWorkToday, scores, type_work, startAt, timeRemain } = req.body
+
+    // console.log(typeof (status));
+    if (!name_work || !date_work || !notification || !type_work) {
+        return res.status(400).json({ success: false, message: "Missing update post work ! please check and try again" })
+
+    }
+    try {
+        let updatePost = {
+            name_work,
+            date_work,
+            notification,
+            status,
+            statusFinised: false,
+            endWork: false,
+            scores: null,
+            startAt,
+            timeRemain,
+            dateWorkToday,
+            type_work,
+            user: req.userId
+        }
+        const updatePostID = { _id: req.params.id, user: req.userId }
+        updateProduct = await work.findOneAndUpdate(updatePostID, updatePost, { new: true })
+        console.log(updateProduct, 55);
+        if (!updateProduct) {
+            return res.status(401).json({ success: false, message: 'Không tìm thấy bài post nào và người dùng nào như vậy!' })
+        }
+        return res.json({ success: true, message: 'Cập nhật thành công!', updateProduct })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, message: "internal server errors" })
+    }
+})
 
 //UPDATE my work
 router.patch('/:id', verifyToken, async (req, res) => {
@@ -116,6 +152,24 @@ router.patch('/:id', verifyToken, async (req, res) => {
             return res.status(401).json({ success: false, message: 'Không tìm bài post nào và người dùng nào như vậy!' })
         }
         return res.json({ success: true, message: 'Cập nhật thành công!', updateProduct })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, message: "internal server errors" })
+    }
+})
+
+
+
+//DELETE my work
+router.delete('/:id', verifyToken, async (req, res) => {
+    try {
+
+        const updatePostID = { _id: req.params.id, user: req.userId }
+        updateProduct = await work.findOneAndDelete(updatePostID)
+        if (!updateProduct) {
+            return res.status(401).json({ success: false, message: 'Không tìm bài post nào và người dùng nào như vậy!' })
+        }
+        return res.json({ success: true, message: 'Xóa thành công!', updateProduct })
     } catch (error) {
         console.log(error);
         res.status(500).json({ success: false, message: "internal server errors" })

@@ -7,13 +7,13 @@ const WorkSchema = new Schema({
         required: true
 
     },
-    date_work: [
-        {
-            hours: { type: Number, required: true },
-            minutes: { type: Number, required: true },
+    date_work:
+    {
+        hours: { type: Number, required: true },
+        minutes: { type: Number, required: true },
 
-        }
-    ],
+    },
+
     notification: {
         type: String,
         required: true

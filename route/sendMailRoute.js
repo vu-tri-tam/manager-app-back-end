@@ -6,17 +6,24 @@ router.post('/', function (req, res, next) {
     const { content, email, subject } = req.body
     var transporter = nodemailer.createTransport({ // config mail server
         service: 'Gmail',
+        host: process.env.DB_HOST_MAILER,
+        port: process.env.DB_PORT_MAILER,
+        secure: true,
         auth: {
-            user: 'ngoncoiuem123@gmail.com',
-            pass: 'Baochau9a3'
+            user: process.env.DB_MAIL_NAME,
+            pass: process.env.DB_MAIL_PASSWORD
+        },
+        tls: {
+            // do not fail on invalid certs
+            rejectUnauthorized: false
         }
     });
     var mainOptions = { // thiết lập đối tượng, nội dung gửi mail
-        from: 'vutritamiuem@gmail.com',
+        from: 'manager-app',
         to: email,
         subject: subject,
         text: 'You recieved message from ' + req.body.email,
-        html: `<p>You have got a new message ${subject} </b><ul><li>` + content + `</li></ul>`
+        html: `<p>You have got a new message ${subject} </b><ul><li>code:` + content + `</li></ul>`
     }
     transporter.sendMail(mainOptions, function (err, info) {
         if (err) {
@@ -32,6 +39,7 @@ router.post('/', function (req, res, next) {
         }
     });
 });
+
 module.exports = router;
 
 // Kết quả email nhận được
